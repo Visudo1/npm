@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eunoia</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e0e0e0; /* Warna dasar neumorphic */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        /* Kelas Neumorphism dasar untuk elemen timbul */
+        .neumorphic-base {
+            background-color: #e0e0e0;
+            /* Light source from top-left, so light shadow on top/left, dark on bottom/right */
+            box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+            border-radius: 1rem; /* Sudut membulat */
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Kelas Neumorphism untuk elemen tertekan/aktif (inset) */
+        .neumorphic-pressed {
+            background-color: #d0d0d0; /* Sedikit lebih gelap */
+            /* Inset shadow simulates pressing in */
+            box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+            border-radius: 1rem; /* Sudut membulat */
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Custom style untuk header dengan background gradien */
+        .header-gradient {
+            background: linear-gradient(to bottom right, #fdd835, #ffb300); /* Gradien kuning-oranye */
+        }
+    </style>
+</head>
+<body class="flex flex-col">
+
+    <!-- Header Profil (mirip gambar) -->
+    <header class="header-gradient p-6 pb-20 relative text-center">
+        <!-- Notifikasi dan Pengaturan Ikon -->
+        <div class="absolute top-4 right-4 flex space-x-4 text-white text-xl">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-cog"></i>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+            <img src="https://placehold.co/120x120/ffffff/000000?text=Avatar" alt="User Avatar"
+                 class="rounded-full border-4 border-white shadow-lg mb-4">
+            <h1 class="text-white text-2xl font-semibold">Edo Erpani</h1>
+            <p class="text-white text-sm">Los Angeles, United States</p>
+        </div>
+    </header>
+
+    <!-- Konten Utama Halaman -->
+    <main class="flex-grow bg-neumorphic-bg -mt-16 pt-8 pb-4 relative z-10 rounded-t-3xl">
+        <div class="container mx-auto px-4 max-w-screen-md">
+
+            <!-- Tombol Edit Profile -->
+            <div class="mb-8 -mt-4">
+                <button class="w-full py-3 neumorphic-base text-gray-700 font-medium rounded-full
+                                hover:neumorphic-pressed focus:neumorphic-pressed transition-all duration-200">
+                    <i class="fas fa-edit mr-2"></i> Edit Profile
+                </button>
+            </div>
+
+            <!-- Bagian Latest Post (Neumorphic Card) -->
+            <section class="mb-8">
+                <h2 class="text-gray-700 text-xl font-bold mb-4 ml-2">Latest Post</h2>
+                <div class="neumorphic-base p-6 rounded-2xl relative">
+                    <div class="absolute top-4 right-4 text-gray-400 text-sm">
+                        <div class="flex items-center mb-1">
+                            <i class="fas fa-heart mr-1"></i> 2.3k
+                        </div>
+                        <div class="flex items-center mb-1">
+                            <i class="fas fa-comment-dots mr-1"></i> 220
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-share-alt mr-1"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-gray-800 text-xl font-semibold mb-2">What to use?</h3>
+                    <p class="text-gray-500 text-sm">6h ago</p>
+                </div>
+            </section>
+
+            <!-- Bagian Explore (Neumorphic Grid) -->
+            <section class="mb-16">
+                <h2 class="text-gray-700 text-xl font-bold mb-4 ml-2">Explore Categories</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    <!-- Item Explore 1 -->
+                    <div class="neumorphic-base flex flex-col items-center justify-center p-4 rounded-xl text-gray-700
+                                hover:neumorphic-pressed cursor-pointer transition-all duration-200">
+                        <i class="fas fa-utensils text-2xl mb-2"></i>
+                        <span class="text-sm font-medium text-center">Food & Dining</span>
+                    </div>
+                    <!-- Item Explore 2 -->
+                    <div class="neumorphic-base flex flex-col items-center justify-center p-4 rounded-xl text-gray-700
+                                hover:neumorphic-pressed cursor-pointer transition-all duration-200">
+                        <i class="fas fa-plane text-2xl mb-2"></i>
+                        <span class="text-sm font-medium text-center">Travel</span>
+                    </div>
+                    <!-- Item Explore 3 -->
+                    <div class="neumorphic-base flex flex-col items-center justify-center p-4 rounded-xl text-gray-700
+                                hover:neumorphic-pressed cursor-pointer transition-all duration-200">
+                        <i class="fas fa-tshirt text-2xl mb-2"></i>
+                        <span class="text-sm font-medium text-center">Fashion</span>
+                    </div>
+                    <!-- Item Explore 4 -->
+                    <div class="neumorphic-base flex flex-col items-center justify-center p-4 rounded-xl text-gray-700
+                                hover:neumorphic-pressed cursor-pointer transition-all duration-200">
+                        <i class="fas fa-dumbbell text-2xl mb-2"></i>
+                        <span class="text-sm font-medium text-center">Fitness</span>
+                    </div>
+                    <!-- Item Explore 5 -->
+                    <div class="neumorphic-base flex flex-col items-center justify-center p-4 rounded-xl text-gray-700
+                                hover:neumorphic-pressed cursor-pointer transition-all duration-200">
+                        <i class="fas fa-laptop-code text-2xl mb-2"></i>
+                        <span class="text-sm font-medium text-center">Tech</span>
+                    </div>
+                    <!-- Item Explore 6 -->
+                    <div class="neumorphic-base flex flex-col items-center justify-center p-4 rounded-xl text-gray-700
+                                hover:neumorphic-pressed cursor-pointer transition-all duration-200">
+                        <i class="fas fa-book text-2xl mb-2"></i>
+                        <span class="text-sm font-medium text-center">Books</span>
+                    </div>
+                     <!-- Item Explore 7 -->
+                     <div class="neumorphic-base flex flex-col items-center justify-center p-4 rounded-xl text-gray-700
+                                hover:neumorphic-pressed cursor-pointer transition-all duration-200">
+                        <i class="fas fa-music text-2xl mb-2"></i>
+                        <span class="text-sm font-medium text-center">Music</span>
+                    </div>
+                     <!-- Item Explore 8 -->
+                     <div class="neumorphic-base flex flex-col items-center justify-center p-4 rounded-xl text-gray-700
+                                hover:neumorphic-pressed cursor-pointer transition-all duration-200">
+                        <i class="fas fa-paint-brush text-2xl mb-2"></i>
+                        <span class="text-sm font-medium text-center">Art</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Navigation Bar (Sesuai dengan artefak sebelumnya, perlu ditempatkan di sini jika ingin statis) -->
+    <!-- Untuk demo ini, saya tidak menyertakan JavaScript untuk navbar interaktif di file ini,
+         karena fokusnya adalah layout profile/explore. Anda bisa menggabungkannya nanti. -->
+    <nav class="neumorphic-base flex justify-around items-center p-4 mx-auto w-full max-w-screen-md
+                sm:rounded-t-xl rounded-t-xl shadow-[6px_6px_12px_#bebebe,_-6px_-6px_12px_#ffffff]">
+        <button class="flex flex-col items-center justify-center p-2 mx-1 flex-grow text-gray-700 neumorphic-base
+                       hover:neumorphic-pressed focus:neumorphic-pressed rounded-lg cursor-pointer transition-all duration-200">
+            <i class="fas fa-compass nav-icon"></i>
+            <span class="text-xs font-medium">Explore</span>
+        </button>
+        <button class="flex flex-col items-center justify-center p-2 mx-1 flex-grow text-gray-700 neumorphic-base
+                       hover:neumorphic-pressed focus:neumorphic-pressed rounded-lg cursor-pointer transition-all duration-200">
+            <i class="fas fa-store nav-icon"></i>
+            <span class="text-xs font-medium">Shops</span>
+        </button>
+        <button class="flex flex-col items-center justify-center p-2 mx-1 flex-grow text-gray-700 neumorphic-pressed
+                       rounded-lg cursor-pointer transition-all duration-200">
+            <i class="fas fa-home nav-icon"></i>
+            <span class="text-xs font-medium">Home</span>
+        </button>
+        <button class="flex flex-col items-center justify-center p-2 mx-1 flex-grow text-gray-700 neumorphic-base
+                       hover:neumorphic-pressed focus:neumorphic-pressed rounded-lg cursor-pointer transition-all duration-200">
+            <i class="fas fa-wallet nav-icon"></i>
+            <span class="text-xs font-medium">Wallet</span>
+        </button>
+        <button class="flex flex-col items-center justify-center p-2 mx-1 flex-grow text-gray-700 neumorphic-base
+                       hover:neumorphic-pressed focus:neumorphic-pressed rounded-lg cursor-pointer transition-all duration-200">
+            <i class="fas fa-user nav-icon"></i>
+            <span class="text-xs font-medium">Profile</span>
+        </button>
+    </nav>
+
+</body>
+</html>
+
+
